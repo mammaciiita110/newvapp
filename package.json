@@ -6,7 +6,7 @@
   "scripts": {
     "http-server": "npx http-server src -p 9001",
     "dev": "vite",
-    "build": "vite build && node copyLoginHtml.js",
+    "build": "vite build",
     "serve": "vite preview",
     "htmlhint": "npx htmlhint public src || exit 0",
     "stylelint": "npx stylelint **/*.css || exit 0",
