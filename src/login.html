@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        input, button {
+            width: 90%;
+            padding: 15px;
+            margin-bottom: 10px; /* Adjust margin to separate elements */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        #login-button {
+            background-color: #28a745; /* Green color for the login button */
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        #login-button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+        #no-button {
+            background-color: #007bff; /* Blue color for the no code button */
+            color: white;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        #no-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        @media (max-width: 600px) {
+            body {
+                margin: 20px;
+            }
+            input, button {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <input type="text" id="user-number-input" placeholder="Skriv in kod">
+        <button id="login-button">Logga in</button>
+        <div style="margin-bottom: 0px;"></div> <!-- This div adds space between the buttons -->
+        <button id="no-button">Ingen kod?</button>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+</html>

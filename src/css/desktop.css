@@ -1,0 +1,922 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    height: 110vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* No repeating of the background */
+    background-position: center; /* Center the background image */
+    -webkit-user-select: none; /* Disable text selection */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden; /* Prevents scrolling */
+    background-color: #ffffff;
+}
+
+img {
+    -webkit-user-drag: none; /* Disable image dragging */
+    user-drag: none;
+    -moz-window-dragging: none;
+}
+
+/* ... Rest of your existing CSS ... */
+
+.content-area p {
+    margin-bottom: 21.5vh; /* Adjust the top margin as needed */
+    color: #333; /* Example text color */
+    font-size: 15px; /* Example font size */
+    text-align: center; /* Center align text */
+    /* Add any other styles you need */
+}
+
+
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    height: 93%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.app-header img {
+    height: 220px; /* Updated height */
+    margin-top: 8px; /* Space from the top */
+}
+
+.app-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}/* Footer container */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: absolute; /* Position footer at the bottom */
+    left: 1.5vw;
+    right: 0;
+    bottom: 0; /* Align to bottom */
+  }
+  
+  /* Footer icons and text container */
+  .footer-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Adjust the margin as needed to increase or decrease space between icons */
+    margin: 0 8vw; /* Example: 10 pixels margin on the left and right */
+    margin-bottom: 5vh; /* Adjust bottom margin to bring the container closer to the bottom */
+
+  }
+  
+  /* Icons within the footer */
+  .footer-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 10px 0; /* Space above and below the icon */
+    cursor: pointer;
+    width: 35px; /* Icon size */
+    height: 35px; /* Maintain aspect ratio */
+    outline: none;
+    position: relative;
+  }
+  
+  /* Text under the icons */
+  .footer-text {
+    font-size: 14px; /* Adjust the font size as needed */
+    text-align: center;
+    white-space: nowrap;
+    color: #1c3c54; /* Color of the text */
+  }
+  
+  
+
+.footer-button:focus, .footer-button:hover {
+    background: none; /* Ensure no background change on hover/focus */
+    outline: none;
+}
+
+/* ... existing styles ... */
+
+.qr-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 20px;
+    border: 2px solid #1c3c54; /* Solid border, adjust color as needed */
+    margin: auto; /* Center the container with margin */
+    margin-bottom: 20vh;
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+    max-width: 200px; /* Maximum width of the container */
+    box-sizing: border-box;
+}
+
+
+.qr-icon {
+    width: 30px; /* Size of the QR code icon */
+    margin-right: 10px; /* Space between icon and text */
+    color: #1c3c54; /* Icon color */
+}
+
+.qr-text {
+    font-size: 16px; /* Size of the text */
+    color: #1c3c54; /* Text color */
+}
+
+.loading-image {
+    position: fixed; /* Keep the image fixed in the viewport */
+    display: block; /* Show the loading GIF */
+    width: 160px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    
+    /* Center the image horizontally and vertically in the viewport */
+    top: 47.7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Optional: Use z-index if the image needs to be on top of other content */
+    z-index: 1000; /* Adjust as necessary */
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent black */
+    z-index: 999; /* Below the new page but above other content */
+    opacity: 0; /* Start fully transparent */
+    transition: opacity 0.5s ease-in-out;
+}
+.new-page {
+    position: fixed;
+    top: 0;
+    left: 100%; /* Start off-screen to the right */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000; /* Above the overlay */
+    transition: left 0.5s ease-in-out;
+}
+
+.new-page {
+    /* Style for the new page */
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: left 0.5s;
+}
+
+.new-page2 {
+    position: fixed;
+    top: 0;
+    left: 100%; /* Start off-screen to the right */
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1000; /* Above the overlay */
+    transition: left 0.5s ease-in-out;
+}
+
+.new-page2 {
+    /* Style for the new page */
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: left 0.5s;
+}
+
+.top-bar {
+    /* Style for the top bar */
+    background-color: rgb(227, 226, 226);
+    padding-top: 18px;
+    padding-bottom: 10px;
+    size: 10px;
+    text-align: center;
+}
+
+.cancel-text {
+    /* Style for the 'Cancel' text */
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+}
+
+.top-bar-image {
+    position: absolute;
+    height: 40px; /* Adjust the size as necessary */
+    margin-left: 20vw;
+    margin-top: -1.4vh;
+  }
+
+.hello-text {
+    /* Style for the 'Hello' text */
+    font-weight: bold;
+    font-size: 17px;
+}
+.hello-text2 {
+    /* Style for the 'Hello' text */
+    font-size: 17px;
+}
+
+.bottom-rect {
+    /* Style for the bottom rectangular area */
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    height: 50px;
+    background-color: #1c3c54;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Vertically center text */
+}
+.bottom-text {
+    /* Style for the text in the bottom rectangular area */
+    color: white;
+    font-size: 14px;
+}
+
+.plain-text {
+    /* Style for the plain text */
+    font-size: 15px;
+    margin-top: 23px;
+    margin-left: 20px;
+}
+
+.plain-text-headline    {
+    /* Style for the headline of the plain text */
+    font-weight: bold;
+    font-size: 19px;
+    margin-left: 20px;
+    margin-top: -9px;
+}
+
+.bottom-rect {
+    transition: opacity 0.3s, transform 0.3s;
+    will-change: transform, opacity;
+    /* Other styles */
+}
+
+/* Styles for the keyboard container */
+.keyboard-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 10%; /* Adjust this value based on your keyboard's height */
+    transition: bottom 0.3s;
+    background: #FFF;
+    z-index: 10000; /* High enough to be on top of other elements */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Styles for the input field */
+.code-input {
+    width: 80%;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Styles for the custom keyboard within the container */
+.custom-keyboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+}
+
+/* Key styles */
+.key {
+    background-color: rgb(227, 226, 226);
+    border: 1px solid #aaaaaa;
+    padding: 15.6px;
+    margin: -1px;
+    text-align: left;
+    font-size: 2em;
+    color: black;
+}
+
+
+/* Delete key styles */
+.delete {
+    background-color: rgb(227, 226, 226);
+    text-align: center;
+    color: gray;
+}
+
+/* Enter key styles */
+.enter {
+    background-color: #1c3c54;;
+    font-size: 1.5em;
+    color: white;
+
+}
+
+.fake-input-container {
+    background-color: rgb(227, 226, 226);
+    position: fixed; /* Fixed position */
+    bottom: 39.9%; /* Adjust this value based on your keyboard's height */
+    left: 0;
+    width: 100%;
+    text-align: left; /* Center align if needed */
+    height: 6.6vh;
+    box-sizing: border-box;
+    align-items: center;
+    Z-Index: 10001
+  }
+
+.fake-input-field {
+    border: 1px solid #ccc; /* Border similar to an input field */
+    border-radius: 5px;
+    padding: 4px 8px; /* Padding for the text */
+    margin: 10px; /* Margin for spacing */
+    min-height: 30px; /* Minimum height */
+    background-color: #fff; /* Background color */
+    display: inline-block; /* Make it inline-block */
+    width: calc(100% - 24px); /* Width calculation */
+    box-sizing: border-box; /* Box sizing for proper width calculation */
+    cursor: text; /* Cursor to indicate it's editable */
+    font-size: 1em;
+  }
+
+  .key, .delete, .enter {
+    /* Existing styles */
+    outline: none; /* Remove outline on focus */
+    /* Style to prevent highlighting on active or focus */
+    background-color: /* Your preferred color for key */;
+}
+
+.key:active, .key:focus,
+.delete:active, .delete:focus,
+.enter:active, .enter:focus {
+    /* Style to keep the appearance unchanged or as desired on active/focus */
+    background-color: /* Your preferred color for active/focused key */;
+    outline: none;
+}
+  
+.card-page {
+    position: fixed;
+    top: 0;
+    right: 0; /* Start offscreen */
+    bottom: 0;
+    left: 100%;
+    background: #1c3c54; /* Solid color background */
+    z-index: 10000;
+    /* Other styles as needed */
+}
+
+/* Style for the rounded card on top */
+#rounded-card {
+    background-color: white;
+    border-radius: 15px;
+    width: 85%;
+    height: 73%;
+    margin: 20px auto;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    /* Add additional styles as needed */
+}
+
+
+
+
+
+.card-image {
+    width: 75%; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Make the image a block element */
+    margin: auto; /* Center the image horizontally */
+    margin-top: 20%; /* Distance from the top, adjust as needed */
+    margin-bottom: 5%; /* Distance from the bottom, adjust as needed */
+    /* Add other styles as needed */
+}
+
+.ageBox {
+    background-color: white;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100; /* Adjust as needed */
+    position: fixed; 
+    margin-top: 46.7vh; /* Adjust as needed */
+    margin-left: 62.3vw; /* Adjust as needed */
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    font-size: 3em; /* Adjust as needed */
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}
+
+.top-card-image {
+    width: auto; /* Maintain original image width */
+    height: 60px; /* Maintain aspect ratio */
+    display: block; /* Block display to enable margin auto */
+    margin: 0 auto; /* Center the image horizontally */
+    margin-top: -3%; /* Adjust top margin as needed */
+    /* Add other styles as needed */
+}
+
+.waves-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000; /* Above other content */
+}
+
+.waves-image {
+    width: 1000px; /* Maintain original width */
+    height: 100%; /* Stretch to container height */
+    margin-left: -90%;
+    margin-top: -20%;
+}
+
+.bid-name {
+    font-size: 1.7em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    display: block; /* Block display to enable margin auto */
+    margin: 0 auto; /* Center the image horizontally */
+    margin-top: 3vh;
+    text-align: center;
+    color: black;
+   
+}
+  
+  /* Style for the bidssd text */
+.bid-ssd {
+    font-size: 1.4em;
+    display: block; /* Block display to enable margin auto */
+    margin: 0 auto; /* Center the image horizontally */
+    text-align: center;
+    margin-top: 0.8vh;
+    color: gray;
+}
+/* Style for the new fxCanvas */
+.fxCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95%;
+    margin: 10px;
+    height: auto%;
+    align-items: center;
+    border-radius: 15px; /* Match the border-radius of the rounded card */
+}
+
+
+@keyframes rotateWavesLeft {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg); /* Rotates the wave image to the left (counterclockwise) */
+    }
+  }
+  
+  @keyframes rotateWavesRight {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg); /* Rotates the wave image to the right (clockwise) */
+    }
+  }
+  
+  
+
+
+
+
+
+  #please-wait-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Dark tint */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100000; /* High z-index to ensure it's on top */
+    transition: opacity 0.3s; /* Fade-in effect */
+    opacity: 0; /* Start with the overlay hidden */
+  }
+  
+  #please-wait-overlay.active {
+    opacity: 1; /* Make the overlay visible */
+  }
+  
+  .please-wait-message-box {
+    padding: 25px 65px;
+    border-radius: 15px; /* Rounded corners */
+    background: white; /* White background for the message box */
+    color: black;
+    font-size: 1em;
+    margin-bottom: 5vh;
+    font-weight: bold;
+    
+  }
+
+  .circle {
+    width: 130px;
+    height: 130px;
+    position: absolute;
+    border-radius: 20%;
+    background-color: rgba(206, 206, 206, 0); /* Semi-transparent background */
+    filter: blur(1px);
+    background-size: 94% 70.9%; /* Maintain aspect ratio */
+    background-repeat: no-repeat !important; /* No repeating of the background */
+    background-attachment: fixed; 
+    background-position: fixed;
+    background-position-x: 2.9vw;
+    background-position-y: 1.4vh;
+    background-blend-mode: overlay;
+    margin-bottom: 1000px;
+    opacity: 0;
+    z-index: 100;
+  }
+
+
+.circle.transition {
+    transition: opacity 0.4s ease-in-out;
+}
+  #full-page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    z-index: 999999999; /* High z-index to ensure it's on top */
+    display: none; /* Initially hidden */
+}
+
+#goout {
+    position: absolute;
+    background: none;
+    font-stretch: expanded;
+    font-size: 2.3em;
+    margin-top: 1.2vh;
+    margin-left: 5.3vw;
+    color: #1c3c54;
+    border: none;
+
+    /* Additional styling for the button */
+}
+.setting-group {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    overflow: hidden; /* This makes the border radius apply to the children as well */
+    border: none;
+  }
+  
+  .setting-group:first-child {
+    margin-top: 20px;
+  }
+  
+  .setting-panel {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 0.5px solid #ccc;
+    background-color: #fff;
+  }
+
+  
+  .fas {
+    margin-right: 15px; /* Adjust as needed */
+    margin-left: 5px;
+  }
+  
+  .setting-panel span {
+    font-size: 16px;
+    color: #000;
+    border: 0px;
+  }
+
+  .setting-panel .subtext {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    white-space: pre-wrap;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .setting-panel .text-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .red-text, .red-icon {
+    color: red;
+  }
+  .setting-panel .text-container .red-text {
+    color: red !important;
+  }
+
+
+#top-card-image {
+    position: absolute;
+    margin-top: 3vh;
+    left: 50%;
+    transform: translateX(-50%); /* Center the logo */
+    height: 50px; /* Adjust as needed */
+    width: auto;
+    
+    /* Additional styling for the logo */
+}
+
+#three-dots {
+    position: absolute;
+    background: none;
+    font-stretch: expanded;
+    font-size: 2.2em;
+    color: #1c3c54;
+    margin-left: 90%;
+    margin-top: 3.3vw;
+    border: none;
+
+    /* Additional styling for the button */
+}
+
+
+#white-box {
+    display: flex;
+    justify-content: center; /* Center the QR code horizontally */
+    align-items: center; /* Center the QR code vertically */
+    padding: 3px;
+    padding-bottom: 12px;
+    position: relative;
+    margin-top: 69vh;
+    left: 50%;
+    transform: translateX(-50%); /* Center the box horizontally */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 38vw;
+    height: 38vw; /* Adjust as needed */
+    /* Additional styling for the white box */
+}
+
+#black-bar {
+    position: absolute;
+    bottom: 0; /* Position at the bottom of the white box */
+    left: 0;
+    height: 5%; /* Height of the bar */
+    width: 100%; /* Full width initially */
+    background-color: black;
+    transition: width 1s linear; /* Smooth transition for the width change */
+}
+
+#text-id {
+    text-align: center;
+    margin-top: 1.2vh;
+    font-size: 12px; 
+    color: #ffffff; 
+    /* Additional styling as needed */
+}
+
+/* Styling for the appended text in each key */
+/* Styling for the appended text in each key */
+.append-text {
+    font-size: 0.5em; /* Makes the text smaller than the main key number */
+    color: #707070; /* Example: Gray color for the text */
+    margin-left: 4px; /* Adds a small space between the number and this text */
+    display: inline-block; /* Use inline-block for positioning */
+    position: relative; /* Relative positioning */
+    top: -5px; /* Move the text up by 2 pixels */
+    /* Adjust the 'top' value as needed to achieve the desired position */
+}
+
+@keyframes jump {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-20px); /* Adjust the value to control the jump height */
+    }
+  }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.modal-content p {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+
+.arrow-image {
+  position: fixed;
+  bottom: -8vh;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Adjust size as needed */
+  filter: brightness(0.8) contrast(0.6);
+  animation: jump 1s ease-in-out infinite;
+}
+
+@keyframes rotate90Degrees {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+  
+
+/* Additional global styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+
+p {
+    color: #333;
+    font-size: 1rem;
+}
+
+@media only screen 
+  and (max-width: 375px) 
+  and (max-height: 667px) /* height for iPhone 8, 7 in portrait */ {
+    footer {
+        bottom: -30px; /* Align to bottom */
+    }
+    .bottom-rect {
+        bottom: 20px; /* Align to bottom */
+    }
+    .keyboard-container {
+        bottom: 30px; /* Align to bottom */
+    }
+    .fake-input-container {
+        bottom: 282px; /* Align to bottom */
+    }
+    .card-image {
+        margin-top: 14%; /* Adjust top margin */
+        width: 65%; /* Adjust width */
+    }
+    .ageBox {
+        background-color: white;
+        font-size: 2.5em; /* Adjust as needed */
+        font-weight: bold;
+    }
+    .bid-name {
+        font-size: 1.5em; /* Adjust as needed */
+        margin-top: 2.5vh; /* Adjust as needed */
+    }
+    .bid-ssd {
+        font-size: 1.2em; /* Adjust as needed */
+        margin-top: 0.5vh; /* Adjust as needed */
+    }
+    #white-box {
+        display: flex;
+        justify-content: center; /* Center the QR code horizontally */
+        align-items: center; /* Center the QR code vertically */
+        padding: 10px;
+        padding-bottom: 14px;
+        position: relative;
+        margin-top: 65vh;
+        left: 50%;
+        transform: translateX(-50%); /* Center the box horizontally */
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 38vw;
+        height: 38vw; /* Adjust as needed */
+        /* Additional styling for the white box */
+    }
+}
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: rgba(16, 32, 39);
+    }
+    .qr-container {
+        border: 2px solid #ffffff; /* Solid border, adjust color as needed */
+    }
+    .qr-text {
+        color: #ffffff; /* Text color */
+    }
+    .content-area p {
+        color: #f4f4f4; /* Example text color */
+    }
+    .footer-text {
+        color: #ffffff; /* Color of the text */
+    } 
+    .overlay {
+        background-color: rgba(16, 32, 39);
+    }
+    .new-page {
+        background-color: rgba(16, 32, 39);
+    }
+    .new-page2 {
+        background-color: rgba(0, 0, 0);
+    }
+    p {
+        color: #dcdcdc;
+    }
+    .top-bar {
+        background-color: rgba(26, 61, 77);
+        
+    }
+      .setting-panel {
+        background-color: rgba(16, 32, 39, 1);
+      }
+    .cancel-text {
+        color: #ffffff;
+    }
+    .hello-text {
+        color: #ffffff;
+    }
+    .hello-text2 {
+        color: #ffffff;
+    }
+    .bottom-rect {
+        background-color: rgba(141, 194, 218);
+    }
+    .bottom-text {
+        color: rgba(16, 32, 39);
+    }
+    .fake-input-container {
+        background-color: rgba(26, 61, 77);
+    }
+    .setting-panel span {
+        color: #fff;
+    }
+    .setting-panel {
+        border-top: 0.5px solid #555555;
+    }
+    .fas {
+        color: #FFF;
+      }
+      .red-text, .red-icon {
+        color: red;
+      }
+    
+    .keyboard-container {
+        background: rgba(26, 61, 77);
+    }
+    .key {
+        background-color: rgba(26, 61, 77);
+        border: 1px solid rgba(77, 101, 114);
+        color: rgb(231, 230, 227);
+    }
+    .fake-input-field {
+        border: 1px solid rgba(200, 200, 200);
+        background-color: #000000;
+        color: #ffffff;
+    }
+    .please-wait-message-box {
+        background: rgb(42, 46, 46);
+        color: white;
+        
+    }
+        
+}

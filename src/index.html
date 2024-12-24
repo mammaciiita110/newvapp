@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="apple-touch-icon" href="assets/AppIcon76x76@2x~ipad.png">
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #d32f2f; /* Set red background for the whole page */
+          color: #fff; /* Set text color to white for contrast */
+      }
+      #installPrompt {
+          font-family: Arial, sans-serif;
+          background-color: #fff;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px 0; /* Reduce padding to make header smaller */
+        background-color: #d32f2f; /* Red background for header */
+        color: white;
+        margin-left: -20px;
+        margin-top: -20px;
+        height: 150px; /* Set a fixed height for the header */
+    }
+      .intro-section h1 {
+          font-size: 2rem;
+          color: #fff; /* Ensure header text is white */
+      }
+      .intro-section p {
+          font-size: 1.2rem;
+          color: #fff; /* Ensure paragraph text is white */
+      }
+      .location {
+          font-size: 14px;
+          color: #fff; /* Ensure location text is white */
+          margin-top: 5px;
+      }
+      .menu-section {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        max-height: 400px; /* Adjust the height as needed */
+        overflow-y: auto; /* Enable vertical scrolling */
+        border: 1px solid #ddd; /* Optional: adds a border to better visualize the scrollable section */
+        background-color: #fff; /* Optional: adds contrast */
+    }
+    .menu-item {
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+      .menu-item h3 {
+          margin: 0;
+          font-size: 18px;
+          color: #333;
+      }
+      .menu-item p {
+          color: #333;
+          font-size: 14px;
+      }
+      .price {
+          float: right;
+          color: #d32f2f;
+      }
+      #full-page-overlay {
+          display: none;
+      }
+      #app-container {
+          margin-top: 20px;
+      }
+  </style>
+</head>
+<body>
+    <div id="installPrompt" class="modal">
+      <header>
+        <h1>Välkommen till Sun Rice</h1>
+        <p>Upptäck smakerna från Asien</p>
+        <p class="location">Beläget i hjärtat av Nässjö</p>
+    </header>
+        <section class="menu-section">
+            <h2>Meny</h2>
+            <div class="menu-item">
+                <h3>Kyckling Pad Thai <span class="price">129 SEK</span></h3>
+                <p>Risnudlar stekta med kyckling, jordnötter, grönsaker och tamarindsås.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Sushi Kombinationsfat <span class="price">159 SEK</span></h3>
+                <p>12 bitar av varierad sushi, inklusive lax, tonfisk och avokado.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Vegetarisk Banh Mi <span class="price">89 SEK</span></h3>
+                <p>Frasigt bröd med tofu, picklade grönsaker och koriander.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Bibimbap med Nötkött <span class="price">149 SEK</span></h3>
+                <p>Rispanna med nötkött, grönsaker och ett stekt ägg ovanpå.</p>
+            </div>
+            <div class="menu-item">
+                <h3>Miso Ramen <span class="price">119 SEK</span></h3>
+                <p>Ramen i en rik misosoppa med fläsk, ägg och grönsaker.</p>
+            </div>
+        </section>
+    </div> 
+    <div id="full-page-overlay"></div>
+    <div id="app-container"></div>
+    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/login.js"></script>
+    <script src="https://evanw.github.io/glfx.js/glfx.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</body>
+</html>
